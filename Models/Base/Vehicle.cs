@@ -3,7 +3,7 @@ using VehiclePrototype.Interfaces;
 namespace VehiclePrototype.Models.Base;
 
 public abstract class Vehicle(long vehicleId, string model, DateTime yearOfManufacture, string color, double length, double width, double height) 
-    : ICostumCloneable<Vehicle>
+    : ICostumCloneable<Vehicle>, ICloneable
 {
     public long VehicleId { get; set; } = vehicleId;
     public string? Model { get; set; } = model;
@@ -18,6 +18,11 @@ public abstract class Vehicle(long vehicleId, string model, DateTime yearOfManuf
         var vehicleClone = (Vehicle)MemberwiseClone();
         vehicleClone.VehicleId = ++this.VehicleId;
         return vehicleClone;
+    }
+
+    public virtual object Clone()
+    {
+        return this.MemberwiseClone();
     }
 
     public abstract string GetTypeName();

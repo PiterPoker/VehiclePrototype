@@ -65,7 +65,7 @@ public class Program
         clonedBus.Route = "25B";
         clonedBus.Schedule = "5:00 AM - 11:00 PM";
 
-        var clonedTrolleybus = trolleybus.CostumClone();
+        var clonedTrolleybus = (Trolleybus)trolleybus.Clone();
         clonedTrolleybus.Route = "7";
         clonedTrolleybus.Schedule = "6:00 AM - 10:00 PM";
 
